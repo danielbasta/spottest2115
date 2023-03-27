@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <link href="https://i.ibb.co/qmKH7vf/icons8-university-96.png" rel="shortcut icon" type="image/x-icon">
+    <title>Daniel Kokos</title>
+    <!-- Bootstrap CSS -->
+    <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" rel="stylesheet">
+    <!-- Custom CSS -->
+    <!-- Import Bootstrap JS and jQuery -->
+    <script crossorigin="anonymous"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script crossorigin="anonymous"
+            integrity="sha384-XQ/JT0Hgd/Ss7sI8xdSPf/v4z4x4B80F1DT9/WexYr/ksjCt/0aLBNwzJLl09+ZQ"
+            src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper-base.min.js"></script>
+    <script crossorigin="anonymous"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container-fluid text-center mt-4">
+    <div class="row mb-3">
+        <div class="col">
+            <h1 class="display-4">Daniel Kokos</h1>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="d-block mx-auto">
+            <nav>
+                <ul class="nav">
+                    <li class="nav-item">
+                        <h3><a class="nav-link active" href="index.html">Home</a></h3>
+                    </li>
+                    <li class="nav-item">
+                        <h3><a class="nav-link" href="map.html">Map</a></h3>
+                    </li>
+                    <li class="nav-item">
+                        <h3><a class="nav-link" href="sos.html">SOS</a></h3>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <div id="map"></div>
+
+    <!-- OpenStreetMap JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/openlayers/4.6.5/ol.js"></script>
+    <!-- Custom JavaScript -->
+    <script>
+        // Get the user's current location
+        navigator.geolocation.getCurrentPosition(function (position) {
+            // Get the user's latitude and longitude
+            var latitude = position.coords.latitude;
+            var longitude = position.coords.longitude;
+
+            // Create the OpenStreetMap
+            var map = new ol.Map({
+                target: 'map',
+                layers: [
+                    new ol.layer.Tile({
+                        source: new ol.source.OSM()
+                    })
+                ],
+                view: new ol.View({
+                    center: ol.proj.fromLonLat([longitude, latitude]),
+                    zoom: 15
+                })
+            });
+        });
+    </script>
+
+</div>
+</body>
+</html>
