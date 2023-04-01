@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <link href="icons/icon-96x96.png" rel="shortcut icon" type="image/x-icon">
-    <link rel="manifest" href="manifest.json">
+    <link href="manifest.json" rel="manifest">
     <title>OUR WEB APP</title>
     <!-- Bootstrap CSS -->
     <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -20,6 +20,15 @@
     <script crossorigin="anonymous"
             integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
             src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <!--Service worker-->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function () {
+                navigator.serviceWorker.register('/sw.js');
+            });
+        }
+    </script>
+
 </head>
 <body>
 <div class="container-fluid text-center mt-4">
